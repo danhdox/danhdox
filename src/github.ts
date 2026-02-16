@@ -2,6 +2,12 @@ import * as core from '@actions/core';
 import * as github from '@actions/github';
 import { Octokit } from '@octokit/rest';
 
+// Type imports from Octokit
+type IssueSearchItem = Awaited<ReturnType<Octokit['search']['issuesAndPullRequests']>>['data']['items'][0];
+type PullRequestFile = Awaited<ReturnType<Octokit['pulls']['listFiles']>>['data'][0];
+type IssueItem = Awaited<ReturnType<Octokit['issues']['listForRepo']>>['data'][0];
+type PullRequestItem = Awaited<ReturnType<Octokit['pulls']['list']>>['data'][0];
+
 export interface GitHubClient {
   octokit: Octokit;
   context: typeof github.context;
@@ -59,7 +65,7 @@ export async function searchIssues(
       order: 'desc'
     });
 
-    return response.data.items.map((item: any) => ({
+    return response.data.items.map((item: IssueSearchItem) => ({
       number: item.number,
       title: item.title,
       body: item.body || null,
@@ -129,7 +135,7 @@ export async function getPullRequestFiles(
       per_page: 100
     });
 
-    return response.data.map((file: any) => ({
+    return response.data.map((file: PullRequestFile) => ({
       filename: file.filename,
       status: file.status,
       additions: file.additions,
@@ -236,8 +242,8 @@ export async function getRecentIssues(
     });
 
     return response.data
-      .filter((item: any) => !item.pull_request) // Filter out PRs
-      .map((item: any) => ({
+      .filter((item: IssueItem) => !item.pull_request) // Filter out PRs
+      .map((item: IssueItem) => ({
         number: item.number,
         title: item.title,
         body: item.body || null,
@@ -266,16 +272,17 @@ export async function getRecentPullRequests(
       direction: 'desc'
     });
 
-    return response.data.map((pr: any) => ({
+    return response.data.map((pr: PullRequestItem) => ({
       number: pr.number,
       title: pr.title,
       body: pr.body || null,
       state: pr.state,
       created_at: pr.created_at,
       html_url: pr.html_url,
-      additions: pr.additions || 0,
-      deletions: pr.deletions || 0,
-      changed_files: pr.changed_files || 0
+      // Note: list endpoint doesn't include these fields, they're available in get endpoint
+      additions: 0,
+      deletions: 0,
+      changed_files: 0
     }));
   } catch (error) {
     core.warning(`Failed to get recent pull requests: ${error}`);

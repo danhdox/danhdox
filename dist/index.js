@@ -50,9 +50,16 @@ const pg_1 = __nccwpck_require__(3273);
 let pool = null;
 function getDatabase(databaseUrl) {
     if (!pool) {
+        const sslConfig = databaseUrl.includes('localhost')
+            ? false
+            : {
+                rejectUnauthorized: true,
+                // Allow self-signed certificates in development
+                // Set NODE_TLS_REJECT_UNAUTHORIZED=0 in dev if needed
+            };
         pool = new pg_1.Pool({
             connectionString: databaseUrl,
-            ssl: databaseUrl.includes('localhost') ? false : { rejectUnauthorized: false }
+            ssl: sslConfig
         });
     }
     return pool;
@@ -582,9 +589,10 @@ async function getRecentPullRequests(client, maxResults) {
             state: pr.state,
             created_at: pr.created_at,
             html_url: pr.html_url,
-            additions: pr.additions || 0,
-            deletions: pr.deletions || 0,
-            changed_files: pr.changed_files || 0
+            // Note: list endpoint doesn't include these fields, they're available in get endpoint
+            additions: 0,
+            deletions: 0,
+            changed_files: 0
         }));
     }
     catch (error) {

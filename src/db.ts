@@ -16,9 +16,17 @@ let pool: Pool | null = null;
 
 export function getDatabase(databaseUrl: string): Pool {
   if (!pool) {
+    const sslConfig = databaseUrl.includes('localhost') 
+      ? false 
+      : {
+          rejectUnauthorized: true,
+          // Allow self-signed certificates in development
+          // Set NODE_TLS_REJECT_UNAUTHORIZED=0 in dev if needed
+        };
+    
     pool = new Pool({
       connectionString: databaseUrl,
-      ssl: databaseUrl.includes('localhost') ? false : { rejectUnauthorized: false }
+      ssl: sslConfig
     });
   }
   return pool;

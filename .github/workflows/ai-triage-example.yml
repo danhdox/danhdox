@@ -1,0 +1,34 @@
+name: AI Triage
+
+on:
+  issues:
+    types: [opened, edited]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: read
+    
+    steps:
+      - name: AI Triage Action
+        uses: Andrewdddobusiness/Andrewdddobusiness@main
+        with:
+          openai_key: ${{ secrets.OPENAI_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: Enable stateful mode with database
+          # database_url: ${{ secrets.DATABASE_URL }}
+          # Optional: Customize settings
+          # similarity_threshold: '0.85'
+          # max_candidates: 20
+          # enable_pr_review: 'true'
+          # enable_dedupe: 'true'
+          # Optional: Customize labels
+          # label_duplicate: 'possible-duplicate'
+          # label_needs_tests: 'needs-tests'
+          # label_high_risk: 'high-risk'
+          # label_ready: 'ready-for-review'

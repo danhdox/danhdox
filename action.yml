@@ -1,0 +1,55 @@
+name: 'AI Triage Action'
+description: 'AI-powered duplicate detection and PR review for GitHub repositories'
+author: 'Andrew'
+
+branding:
+  icon: 'check-circle'
+  color: 'blue'
+
+inputs:
+  openai_key:
+    description: 'OpenAI API key for LLM operations'
+    required: true
+  database_url:
+    description: 'PostgreSQL connection URL (optional, enables stateful mode with pgvector)'
+    required: false
+  similarity_threshold:
+    description: 'Similarity threshold for duplicate detection (0.0-1.0)'
+    required: false
+    default: '0.85'
+  max_candidates:
+    description: 'Maximum number of candidates to check for duplicates'
+    required: false
+    default: '20'
+  enable_pr_review:
+    description: 'Enable structured PR review functionality'
+    required: false
+    default: 'true'
+  enable_dedupe:
+    description: 'Enable duplicate detection functionality'
+    required: false
+    default: 'true'
+  github_token:
+    description: 'GitHub token for API access'
+    required: false
+    default: ${{ github.token }}
+  label_duplicate:
+    description: 'Label to apply for possible duplicates'
+    required: false
+    default: 'possible-duplicate'
+  label_needs_tests:
+    description: 'Label to apply when tests are missing'
+    required: false
+    default: 'needs-tests'
+  label_high_risk:
+    description: 'Label to apply for high-risk changes'
+    required: false
+    default: 'high-risk'
+  label_ready:
+    description: 'Label to apply when PR is ready for review'
+    required: false
+    default: 'ready-for-review'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

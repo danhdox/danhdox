@@ -28,6 +28,7 @@
   "dependencies": {
     "@actions/core": "^1.10.1",
     "@actions/github": "^6.0.0",
+    "@octokit/rest": "^20.1.2",
     "openai": "^4.20.1",
     "pg": "^8.11.3",
     "pgvector": "^0.1.8"

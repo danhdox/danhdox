@@ -3,12 +3,15 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
-# Build output
-dist/
+# Build output (lib only, dist is needed for action)
 lib/
 *.js
 *.js.map
 *.d.ts
+
+# But keep dist for GitHub Actions
+!dist/
+!dist/**/*.js
 
 # TypeScript cache
 *.tsbuildinfo

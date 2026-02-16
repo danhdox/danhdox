@@ -59,7 +59,7 @@ export async function searchIssues(
       order: 'desc'
     });
 
-    return response.data.items.map(item => ({
+    return response.data.items.map((item: any) => ({
       number: item.number,
       title: item.title,
       body: item.body || null,
@@ -129,7 +129,7 @@ export async function getPullRequestFiles(
       per_page: 100
     });
 
-    return response.data.map(file => ({
+    return response.data.map((file: any) => ({
       filename: file.filename,
       status: file.status,
       additions: file.additions,
@@ -236,8 +236,8 @@ export async function getRecentIssues(
     });
 
     return response.data
-      .filter(item => !item.pull_request) // Filter out PRs
-      .map(item => ({
+      .filter((item: any) => !item.pull_request) // Filter out PRs
+      .map((item: any) => ({
         number: item.number,
         title: item.title,
         body: item.body || null,
@@ -266,7 +266,7 @@ export async function getRecentPullRequests(
       direction: 'desc'
     });
 
-    return response.data.map(pr => ({
+    return response.data.map((pr: any) => ({
       number: pr.number,
       title: pr.title,
       body: pr.body || null,

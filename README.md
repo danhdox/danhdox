@@ -16,6 +16,8 @@
 
 - 🎬 **[Haven](https://www.creatorhaven.lol/)**: AI-native video editing system built around structured context and agent orchestration.
 - 🍆 **[Mealo](https://www.mealo.website/)**: AI-powered meal planning app with structured logging and subscription infrastructure.
+- 🔍 **[PRism](https://github.com/danhdox/PRism)** AI-powered GitHub Action for intelligent issue & PR triage.
+
 
 
 ---

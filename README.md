@@ -14,11 +14,15 @@
 
 ## Current Projects
 
-- 🎬 **[Haven](https://www.creatorhaven.lol/)**: AI-native video editing system built around structured context and agent orchestration.
-- 🍆 **[Mealo](https://www.mealo.website/)**: AI-powered meal planning app with structured logging and subscription infrastructure.
-- 🔍 **[PRism](https://github.com/danhdox/PRism)** AI-powered GitHub Action for intelligent issue & PR triage.
+- 🎬 **[Haven Proto](https://www.creatorhaven.lol/)**: AI-native video editing system built around structured context, agent orchestration, and durable creative workflows.
+- 🎾 **[Rallio](https://www.rallio.lol/)**:  Tennis-focused mobile app for match analysis, video workflows, and player performance tooling.
 
+---
 
+## Shadow-zoned Projects
+
+- 🍆 **Mealo**: AI-powered meal planning app with structured logging and subscription infrastructure.
+- 🔍 **PRism** AI-powered GitHub Action for intelligent issue & PR triage.
 
 ---
 
@@ -29,7 +33,3 @@
 [![Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://www.instagram.com/danh.app/)
 [![Threads](https://img.shields.io/badge/-Threads-000000?style=flat-square&logo=threads&logoColor=white)](https://www.threads.com/@danhdox?hl=en)
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/andrewdddo/)
-
-
-
-

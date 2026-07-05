@@ -19,7 +19,7 @@
 
 ---
 
-## Shadow-zoned Projects
+## Shadow-Realmed Projects
 
 - 🍆 **Mealo**: AI-powered meal planning app with structured logging and subscription infrastructure.
 - 🔍 **PRism** AI-powered GitHub Action for intelligent issue & PR triage.

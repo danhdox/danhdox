@@ -10,21 +10,17 @@
 ![Codex](https://img.shields.io/badge/-Codex-121212?style=flat-square&logo=openai&logoColor=white)
 ![macOS](https://img.shields.io/badge/-macOS-000000?style=flat-square&logo=apple&logoColor=white)
 
----
-
 ## Current Projects
 
 - 🎬 **[Haven Proto](https://www.creatorhaven.lol/)**: AI-native video editing system built around structured context, agent orchestration, and durable creative workflows.
-- 🎾 **[Rallio](https://www.rallio.lol/)**:  Tennis-focused mobile app for match analysis, video workflows, and player performance tooling.
-
----
+- 🎾 **[Rallio](https://www.rallio.lol/)**: Tennis-focused mobile app for match analysis, video workflows, and player performance tooling.
+- 📝 **Melo V2**: AI-powered note-taking app for capturing, organizing, and expanding ideas.
+- 🎮 **DRILLWAKE**: An iOS mining adventure about drilling deeper, upgrading your rig, and surviving what lies below.
 
 ## Shadow-Realmed Projects
 
 - 🍆 **Mealo**: AI-powered meal planning app with structured logging and subscription infrastructure.
 - 🔍 **PRism** AI-powered GitHub Action for intelligent issue & PR triage.
-
----
 
 ## Where To Find Me
 
